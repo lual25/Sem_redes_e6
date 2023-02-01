@@ -1,3 +1,4 @@
+#include "ip.h"
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -7,36 +8,10 @@
 
 using namespace std;
 
-int bin_dec(string bin)
-{
-    int value = 0;
-    int indexCounter = 0;
-    for(int i=bin.length()-1;i>=0;i--){
 
-        if(bin[i]=='1'){
-            value += pow(2, indexCounter);
-        }
-        indexCounter++;
-    }
-    return value;
-}
 
-int version(char palabra)
-{
-    string version;
-   for(int i=7;i>=4;i--)
-        version+=((palabra & (1 << i)) ? '1' : '0');
-    return bin_dec(version);
 
-}
 
-int tamanoCab(char palabra)
-{
-    string longitud;
-   for(int i=3;i>=0;i--)
-        longitud+=((palabra & (1 << i)) ? '1' : '0');
-    return bin_dec(longitud);
-}
 
 string tipoServicio(char palabra)
 {
@@ -53,6 +28,7 @@ int main()
 {
 
 
+    string ipv4;
     unsigned char palabra;
     unsigned char tipo;
     int i;
@@ -60,7 +36,7 @@ int main()
 
     FILE *archivo;
 
-    if ((archivo = fopen(".\\paquetes\\ethernet_1.bin","rb+")) == NULL)
+    if ((archivo = fopen(".\\paquetes\\ethernet_ipv4_icmp.bin","rb+")) == NULL)
         {
          cout<<"Error en la apertura. Es posible que el fichero no exista \n";
         }
@@ -106,16 +82,19 @@ int main()
                 cout<<"IPv6 \n";
                 break;
             }
+
             palabra=fgetc(archivo);
+
+            IPv4 x;
+            x.setVersion(palabra);
+            x.setTamCabecera(palabra);
 
 
             cout<<"Version: "<<"\n";
-            cout<<version(palabra)<<endl;
-            cout<<"\n";
+            cout<<x.version<<endl;
 
             cout<<"Tamano de cabecera: "<<"\n";
-            cout<<tamanoCab(palabra)<<endl;
-            cout<<"\n";
+            cout<<x.tamCabecera<<endl;
 
 
             cout<<"Tipo servicio: "<<"\n";
