@@ -21,3 +21,26 @@
 	<iostream>
 	<math.h>
 
+1675270208 source:c:\users\alumno\downloads\nueva carpeta\sem_redes_e6-main\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1675268971 c:\users\alumno\downloads\nueva carpeta\sem_redes_e6-main\sem_redes_e6-main\include\ip.h
+	<string>
+
+1675270327 source:c:\users\alumno\downloads\nueva carpeta\sem_redes_e6-main\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1675270161 c:\users\alumno\downloads\nueva carpeta\sem_redes_e6-main\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+

@@ -26,8 +26,6 @@ string tipoServicio(char palabra)
 
 int main()
 {
-
-
     string ipv4;
     unsigned char palabra;
     unsigned char tipo;
@@ -97,10 +95,16 @@ int main()
             cout<<x.tamCabecera<<endl;
 
 
-            cout<<"Tipo servicio: "<<"\n";
+            cout<<"Tipo servicio: ";
             palabra=fgetc(archivo);
-            cout<<tipoServicio(palabra)<<endl;
+            x.setTipoServicio(palabra);
+            cout<<x.tipoServicio<<endl;
+            cout<<x.desgloseBits<<endl;
+            cout<<"Retardo: "<<x.retardo<<endl;
+            cout<<"Rendimiento: "<<x.rendimiento<<endl;
+            cout<<"Fiabilidad: "<<x.fiabilidad<<endl;
             cout<<"\n";
+
 
 
             cout<<"Datos: ";

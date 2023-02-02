@@ -18,4 +18,12 @@ int bin_dec(string bin)
     }
     return value;
 }
+
+string hex_bin(char hex, int bits)
+{
+    string bin = "00000000";
+    for(int i=bits-1;i>=0;i--)
+        bin[i]=((hex & (1 << i)) ? '1' : '0');
+    return bin;
+}
 #endif

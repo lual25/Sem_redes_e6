@@ -10,10 +10,19 @@ class IPv4
     IPv4();
     int version;
     int tamCabecera;
-    string tipoServicio;
+    string desgloseBits;
+    string tipoServicio = "00000000";
+    string retardo;
+    string rendimiento;
+    string fiabilidad;
+    int logTotal;
 
     void setVersion(char palabra);
     void setTamCabecera(char palabra);
+    void setTipoServicio(char palabra);
+    void setDesgloseBits();
+    void setLogTotal(char palabra1, char palabra2);
+
 
 
 };
