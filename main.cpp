@@ -10,20 +10,6 @@ using namespace std;
 
 
 
-
-
-
-string tipoServicio(char palabra)
-{
-    string servicio;
-    for(int i=7;i>=0;i--)
-        servicio+=((palabra & (1 << i)) ? '1' : '0');
-    return servicio;
-}
-
-
-
-
 int main()
 {
     string ipv4;
@@ -68,7 +54,19 @@ int main()
 
             switch(tipo){
             case 8:
-                cout<<"IPv4 \n";
+                {
+                    cout<<"IPv4 \n";
+
+                    string info;
+                    while (!feof(archivo)){
+
+                        palabra=fgetc(archivo);
+                        info += palabra;
+                        printf ("%02x:",palabra);
+                    }
+                   IPv4 _ipv4(info);
+                   _ipv4.printInfo();
+                }
                 break;
             case 14:
                 cout<<"ARP \n";
@@ -81,40 +79,8 @@ int main()
                 break;
             }
 
-            palabra=fgetc(archivo);
-
-            IPv4 x;
-            x.setVersion(palabra);
-            x.setTamCabecera(palabra);
-
-
-            cout<<"Version: "<<"\n";
-            cout<<x.version<<endl;
-
-            cout<<"Tamano de cabecera: "<<"\n";
-            cout<<x.tamCabecera<<endl;
-
-
-            cout<<"Tipo servicio: ";
-            palabra=fgetc(archivo);
-            x.setTipoServicio(palabra);
-            cout<<x.tipoServicio<<endl;
-            cout<<x.desgloseBits<<endl;
-            cout<<"Retardo: "<<x.retardo<<endl;
-            cout<<"Rendimiento: "<<x.rendimiento<<endl;
-            cout<<"Fiabilidad: "<<x.fiabilidad<<endl;
-            cout<<"\n";
-
-
-
-            cout<<"Datos: ";
-            while (!feof(archivo)){
-
-                palabra=fgetc(archivo);
-                printf ("%02x:",palabra);
-            }
-            cout<<"\n";
-    }
         fclose(archivo);
+
         return (0);
+    }
 }
