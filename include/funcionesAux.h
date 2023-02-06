@@ -19,11 +19,21 @@ int bin_dec(string bin)
     return value;
 }
 
-string hex_bin(char hex, int bits)
+string char_bin(char hex)
 {
     string bin="";
-    for(int i=bits-1;i>=0;i--)
+    for(int i=7;i>=0;i--)
         bin+=((hex & (1 << i)) ? '1' : '0');
+    return bin;
+}
+
+string string_bin(string cadena)
+{
+    string bin="";
+    for(int i=0; i<cadena.length()-1; i++)
+    {
+        bin += char_bin(cadena[i]);
+    }
     return bin;
 }
 #endif

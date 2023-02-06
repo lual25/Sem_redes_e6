@@ -49,23 +49,23 @@ int main()
                 printf ("%02x:",palabra);
             }cout<<"\n";
 
+            string info;
+            while (!feof(archivo)){
+                palabra=fgetc(archivo);
+                info += palabra;
+                //printf ("%02x:",palabra);
+            }
+
             cout<<"Tipo: ";
 
 
-            switch(tipo){
+            switch(int(tipo)){
             case 8:
                 {
                     cout<<"IPv4 \n";
-
-                    string info;
-                    while (!feof(archivo)){
-
-                        palabra=fgetc(archivo);
-                        info += palabra;
-                        printf ("%02x:",palabra);
-                    }
                    IPv4 _ipv4(info);
                    _ipv4.printInfo();
+                   //_ipv4.printDivBytes();
                 }
                 break;
             case 14:
@@ -76,6 +76,9 @@ int main()
                 break;
             case 355:
                 cout<<"IPv6 \n";
+                break;
+            default:
+                cout<<"Tipo no identificado \n";
                 break;
             }
 

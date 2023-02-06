@@ -9,16 +9,16 @@ class IPv4
 protected: //Division de palabras correspondiantes
     string cadenaBytes;
     void asignarBytes(string cadenaBytes);
-    unsigned char versionTCabecera;
-    unsigned char tServicio;
-    unsigned char longTotal[2];
-    unsigned char id[2];
-    unsigned char flagsPFrag[2];
-    unsigned char tVida;
-    unsigned char protocolo;
-    unsigned char checkSum[2];
-    unsigned char ipOrigen[4];
-    unsigned char ipDestino[4];
+    unsigned char cVersionTCabecera;
+    unsigned char cTServicio;
+    unsigned char cLongTotal[2];
+    unsigned char cId[2];
+    unsigned char cFlagsPFrag[2];
+    unsigned char cTVida;
+    unsigned char cProtocolo;
+    unsigned char cCheckSum[2];
+    unsigned char cIpOrigen[4];
+    unsigned char cIpDestino[4];
     string infoRest = "";
 
 
@@ -34,6 +34,9 @@ protected: //Division de palabras correspondiantes
     string rendimiento;
     string fiabilidad;
     int logTotal;
+    int identificador;
+    string protocolo;
+    int ttl;
 
     void setVersion();
     void setTamCabecera();
@@ -42,6 +45,9 @@ protected: //Division de palabras correspondiantes
     void setLogTotal();
     void printDivBytes();
     void printInfo();
+    void setIdentificador();
+    void setProtocolo();
+    void setTtl();
 
 
 
