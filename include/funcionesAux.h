@@ -36,4 +36,13 @@ string string_bin(string cadena)
     }
     return bin;
 }
+
+uint32_t ascii_hex(const char* src) {
+    uint32_t ret = 0;
+    char* dst = (char*)&ret;
+    for(int i = 0; (i < 4) && (*src); ++i, ++src)
+      dst[i] = *src;
+
+    return ret;
+  }
 #endif

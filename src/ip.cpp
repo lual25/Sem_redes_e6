@@ -14,6 +14,7 @@ IPv4::IPv4(string cadenaBytes)
     setIdentificador();
     setProtocolo();
     setTtl();
+    setIPs();
 
 }
 void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabras con sus bytes correspondientes a cada variable
@@ -30,7 +31,7 @@ void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabra
     this->cProtocolo = cadenaBytes[9];
     this->cCheckSum[0] =  cadenaBytes[10];
     this->cCheckSum[1] =  cadenaBytes[11];
-    for(int i=0; i<3; i++)
+    for(int i=0; i<4; i++)
     {
         this->cIpOrigen[i] = cadenaBytes[12+i];
         this->cIpDestino[i] = cadenaBytes[16+i];
@@ -161,10 +162,22 @@ void IPv4::setTtl()
 {
     this->ttl = int(this->cTVida);
 }
-
+void IPv4::setIPs()
+{
+    for(int i=0; i<4; i++)
+    {
+        this->ipOrtigen += to_string(int(this->cIpOrigen[i]));
+        this->ipDestino += to_string(int(this->cIpDestino[i]));
+        if(i<3)
+        {
+            this->ipOrtigen += ".";
+            this->ipDestino += ".";
+        }
+    }
+}
 void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar que la reparticion sea correcta
 {
-    cout<<"Reparticion de bytes"<<endl;
+    cout<<"\nReparticion de bytes"<<endl;
     cout<<"versionTCabecera: "<<endl;
     printf ("%02x",this->cVersionTCabecera);
     cout<<"\ntServicio: "<<endl;
@@ -213,4 +226,13 @@ void IPv4::printInfo()
     cout<<"Posicion de fragmento: "<<"pendiente"<<endl;
     cout<<"Tiempo de vida: "<<this->ttl<<endl;
     cout<<"Protocolo: "<<this->protocolo<<endl;
+    cout<<"IP origen: "<<this->ipOrtigen<<endl;
+    cout<<"IP destino: "<<this->ipDestino<<endl;
+    cout<<"Informacion: "<<endl;
+    unsigned char palabra;
+    for(int i=0; i<this->infoRest.length(); i++)
+    {
+        palabra = this->infoRest[i];
+        printf ("%02x:",palabra);
+    }
 }

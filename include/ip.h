@@ -37,6 +37,8 @@ protected: //Division de palabras correspondiantes
     int identificador;
     string protocolo;
     int ttl;
+    string ipOrtigen = "";
+    string ipDestino = "";
 
     void setVersion();
     void setTamCabecera();
@@ -48,6 +50,7 @@ protected: //Division de palabras correspondiantes
     void setIdentificador();
     void setProtocolo();
     void setTtl();
+    void setIPs();
 
 
 
