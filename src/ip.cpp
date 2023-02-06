@@ -15,6 +15,7 @@ IPv4::IPv4(string cadenaBytes)
     setProtocolo();
     setTtl();
     setIPs();
+    setFlags();
 
 }
 void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabras con sus bytes correspondientes a cada variable
@@ -123,12 +124,18 @@ void IPv4::desglosarBits()
 
 void IPv4::setLogTotal()
 {
-   this->logTotal = bin_dec(char_bin(this->cLongTotal[0])+char_bin(this->cLongTotal[1]));
+    string n = "";
+    n+=this->cLongTotal[0];
+    n+=this->cLongTotal[1];
+   this->logTotal = bin_dec(string_bin(n));
 }
 
 void IPv4::setIdentificador()
 {
-    this->identificador = bin_dec(char_bin(this->cId[0])+char_bin(this->cId[1]));
+    string n = "";
+    n+=this->cId[0];
+    n+=this->cId[1];
+    this->identificador = bin_dec(string_bin(n));
 }
 
 void IPv4::setProtocolo()
@@ -175,6 +182,33 @@ void IPv4::setIPs()
         }
     }
 }
+
+void IPv4::setFlags()
+{
+    string n = "";
+    n+=this->cFlagsPFrag[0];
+    n+=this->cFlagsPFrag[1];
+    string bin = string_bin(n);
+    if(bin[0] == '0')
+        this->flagBit1 = "0 (Reservado)";
+    else
+        this->flagBit1 = "1 (desconocido)";
+    if(bin[1] == '0')
+        this->flagBit2 = "0 (No divisible)";
+    else
+        this->flagBit2 = "1 (Divisible)";
+    if(bin[2] == '0')
+        this->flagBit3 = "0 (Ultimo fragmento)";
+    else
+        this->flagBit3 = "1 (Fragmento intermedio)";
+
+    string newBin = "";
+    for(int i=3; i<bin.size(); i++)
+        newBin+= bin[i];
+    this->posFragmento = bin_dec(newBin);
+}
+
+
 void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar que la reparticion sea correcta
 {
     cout<<"\nReparticion de bytes"<<endl;
@@ -222,10 +256,14 @@ void IPv4::printInfo()
     cout<<"\tFiabilidad: "<<this->fiabilidad<<endl;
     cout<<"Longitud Total: "<<this->logTotal<<endl;
     cout<<"Identificador: "<<this->identificador<<endl;
-    cout<<"Flags: "<<"pendiente"<<endl;
-    cout<<"Posicion de fragmento: "<<"pendiente"<<endl;
+    cout<<"Flags: "<<endl;
+    cout<<"\tBit 1: "<<this->flagBit1<<endl;
+    cout<<"\tBit 2: "<<this->flagBit2<<endl;
+    cout<<"\tBit 3: "<<this->flagBit3<<endl;
+    cout<<"Posicion de fragmento: "<<this->posFragmento<<endl;
     cout<<"Tiempo de vida: "<<this->ttl<<endl;
     cout<<"Protocolo: "<<this->protocolo<<endl;
+    cout<<"Checksum: "<<"Checksum"<<endl;
     cout<<"IP origen: "<<this->ipOrtigen<<endl;
     cout<<"IP destino: "<<this->ipDestino<<endl;
     cout<<"Informacion: "<<endl;

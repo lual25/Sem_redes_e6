@@ -39,6 +39,10 @@ protected: //Division de palabras correspondiantes
     int ttl;
     string ipOrtigen = "";
     string ipDestino = "";
+    string flagBit1;
+    string flagBit2;
+    string flagBit3;
+    int posFragmento;
 
     void setVersion();
     void setTamCabecera();
@@ -51,6 +55,8 @@ protected: //Division de palabras correspondiantes
     void setProtocolo();
     void setTtl();
     void setIPs();
+    void setFlags();
+    void setPosFragmento(string binario);
 
 
 

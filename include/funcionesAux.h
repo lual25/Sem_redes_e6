@@ -2,6 +2,9 @@
 #define FUNCIONESAUX_H
 #include <string>
 #include <math.h>
+#include <iostream>
+
+using namespace std;
 
 using namespace std;
 
@@ -30,7 +33,7 @@ string char_bin(char hex)
 string string_bin(string cadena)
 {
     string bin="";
-    for(int i=0; i<cadena.length()-1; i++)
+    for(int i=0; i<cadena.length(); i++)
     {
         bin += char_bin(cadena[i]);
     }
