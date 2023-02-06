@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1675711187 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
+1675719264 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
 	"ip.h"
 	"funcionesAux.h"
 	<iostream>
@@ -9,7 +9,7 @@
 1675719110 c:\users\luisc\documents\sem redes\sem_redes_e6\include\ip.h
 	<string>
 
-1675711423 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
+1675712283 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
 	<string>
 	<math.h>
 	<iostream>
