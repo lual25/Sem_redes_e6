@@ -16,6 +16,7 @@ IPv4::IPv4(string cadenaBytes)
     setTtl();
     setIPs();
     setFlags();
+    setCheckSum();
 
 }
 void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabras con sus bytes correspondientes a cada variable
@@ -37,7 +38,7 @@ void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabra
         this->cIpOrigen[i] = cadenaBytes[12+i];
         this->cIpDestino[i] = cadenaBytes[16+i];
     }
-    for(int i=20; i<cadenaBytes.length(); i++)
+    for(int i=20; i<cadenaBytes.size(); i++)
         this->infoRest += cadenaBytes[i];
     //print();
 }
@@ -49,7 +50,7 @@ void IPv4::setVersion()
     string version = "";
     string tamCab = "";
     bin = char_bin(this->cVersionTCabecera);
-    for(int i=0; i<bin.length(); i++)
+    for(int i=0; i<bin.size(); i++)
     {
         if(i<4)
             version+=bin[i];
@@ -208,6 +209,12 @@ void IPv4::setFlags()
     this->posFragmento = bin_dec(newBin);
 }
 
+void IPv4::setCheckSum()
+{
+    this->checkSum[0] = dec_hex(int(this->cCheckSum[0]));
+    this->checkSum[1] = dec_hex(int(this->cCheckSum[1]));
+}
+
 
 void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar que la reparticion sea correcta
 {
@@ -263,12 +270,12 @@ void IPv4::printInfo()
     cout<<"Posicion de fragmento: "<<this->posFragmento<<endl;
     cout<<"Tiempo de vida: "<<this->ttl<<endl;
     cout<<"Protocolo: "<<this->protocolo<<endl;
-    cout<<"Checksum: "<<"Checksum"<<endl;
+    cout<<"Checksum: "<<this->checkSum[0]<<":"<<this->checkSum[1]<<endl;
     cout<<"IP origen: "<<this->ipOrtigen<<endl;
     cout<<"IP destino: "<<this->ipDestino<<endl;
     cout<<"Informacion: "<<endl;
     unsigned char palabra;
-    for(int i=0; i<this->infoRest.length(); i++)
+    for(int i=0; i<this->infoRest.size(); i++)
     {
         palabra = this->infoRest[i];
         printf ("%02x:",palabra);

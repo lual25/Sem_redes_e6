@@ -6,13 +6,11 @@
 
 using namespace std;
 
-using namespace std;
-
 int bin_dec(string bin)
 {
     int value = 0;
     int indexCounter = 0;
-    for(int i=bin.length()-1;i>=0;i--){
+    for(int i=bin.size()-1;i>=0;i--){
 
         if(bin[i]=='1'){
             value += pow(2, indexCounter);
@@ -33,7 +31,7 @@ string char_bin(char hex)
 string string_bin(string cadena)
 {
     string bin="";
-    for(int i=0; i<cadena.length(); i++)
+    for(int i=0; i<cadena.size(); i++)
     {
         bin += char_bin(cadena[i]);
     }
@@ -48,4 +46,21 @@ uint32_t ascii_hex(const char* src) {
 
     return ret;
   }
+
+string dec_hex(int value)
+{
+    if (value == 0)
+        return "";
+    string hex="";
+    int rem = value % 16;
+    value /= 16;
+    hex += dec_hex(value); //first execute recurency and print next value
+
+    //after return print the less significant digit
+    if (rem > 9)
+        hex += (char)(rem - 10 + 'A');
+    else
+        hex += to_string(rem);
+    return hex;
+}
 #endif

@@ -6,7 +6,8 @@
 using namespace std;
 class IPv4
 {
-protected: //Division de palabras correspondiantes
+private:
+    //Division de palabras correspondiantes
     string cadenaBytes;
     void asignarBytes(string cadenaBytes);
     unsigned char cVersionTCabecera;
@@ -20,6 +21,19 @@ protected: //Division de palabras correspondiantes
     unsigned char cIpOrigen[4];
     unsigned char cIpDestino[4];
     string infoRest = "";
+
+    void setVersion();
+    void setTamCabecera();
+    void setTipoServicio();
+    void desglosarBits();
+    void setLogTotal();
+    void setIdentificador();
+    void setProtocolo();
+    void setTtl();
+    void setIPs();
+    void setFlags();
+    void setPosFragmento(string binario);
+    void setCheckSum();
 
 
     public:
@@ -43,20 +57,11 @@ protected: //Division de palabras correspondiantes
     string flagBit2;
     string flagBit3;
     int posFragmento;
+    string checkSum[2];
 
-    void setVersion();
-    void setTamCabecera();
-    void setTipoServicio();
-    void desglosarBits();
-    void setLogTotal();
     void printDivBytes();
     void printInfo();
-    void setIdentificador();
-    void setProtocolo();
-    void setTtl();
-    void setIPs();
-    void setFlags();
-    void setPosFragmento(string binario);
+
 
 
 
