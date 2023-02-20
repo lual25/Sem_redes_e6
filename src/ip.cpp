@@ -40,7 +40,6 @@ void IPv4::asignarBytes(string cadenaBytes) //Se encarga de repartir las palabra
     }
     for(int i=20; i<cadenaBytes.size(); i++)
         this->infoRest += cadenaBytes[i];
-    //print();
 }
 
 
@@ -145,6 +144,7 @@ void IPv4::setProtocolo()
     {
     case 1:
         this->protocolo = "ICMPv4";
+        ICMPv4();
         break;
     case 6:
         this->protocolo = "TCP";
@@ -215,6 +215,105 @@ void IPv4::setCheckSum()
     this->checkSum[1] = dec_hex(int(this->cCheckSum[1]));
 }
 
+void IPv4::ICMPv4()
+{
+    unsigned char ICMPv4[4];
+    for(int i=0; i<4; i++)
+        ICMPv4[i] = infoRest[i];
+    switch(int(ICMPv4[0]))
+    {
+    case 0:
+        this->ICMPv4Type="Echo Reply";
+        break;
+    case 3:
+        this->ICMPv4Type="Destination Unreacheable";
+        break;
+    case 4:
+        this->ICMPv4Type="Source Quench";
+        break;
+    case 5:
+        this->ICMPv4Type="Redirect";
+        break;
+    case 8:
+        this->ICMPv4Type="Echo";
+        break;
+    case 11:
+        this->ICMPv4Type="Time Exceeded";
+        break;
+    case 12:
+        this->ICMPv4Type="Parameter Problem";
+        break;
+    case 13:
+        this->ICMPv4Type="Timestamp";
+        break;
+    case 14:
+        this->ICMPv4Type="Timestamp Reply ";
+        break;
+    case 15:
+        this->ICMPv4Type="Information Request ";
+        break;
+    case 16:
+        this->ICMPv4Type="Information Reply ";
+        break;
+    case 17:
+        this->ICMPv4Type="Addressmask";
+        break;
+    case 18:
+        this->ICMPv4Type="Addressmask Reply ";
+        break;
+    default:
+        this->ICMPv4Type="Irreconocible";
+
+    }
+    switch(int(ICMPv4[1]))
+    {
+    case 0:
+        this->ICMPv4Code="No se puede llegar a la red";
+        break;
+    case 1:
+        this->ICMPv4Code="No se puede llegar al host o aplicación de destino";
+        break;
+    case 2:
+        this->ICMPv4Code="El destino no dispone del protocolo solicitado";
+        break;
+    case 3:
+        this->ICMPv4Code="No se puede llegar al puerto destino o la aplicación destino no está libre";
+        break;
+    case 4:
+        this->ICMPv4Code="Se necesita aplicar fragmentación, pero el flag correspondiente indica lo contrario";
+        break;
+    case 5:
+        this->ICMPv4Code="La ruta de origen no es correcta";
+        break;
+    case 6:
+        this->ICMPv4Code="No se conoce la red destino";
+        break;
+    case 7:
+        this->ICMPv4Code="No se conoce el host destino";
+        break;
+    case 8:
+        this->ICMPv4Code="El host origen está aislado";
+        break;
+    case 9:
+        this->ICMPv4Code="La comunicación con la red destino está prohibida por razones administrativas";
+        break;
+    case 10:
+        this->ICMPv4Code="La comunicación con el host destino está prohibida por razones administrativas";
+        break;
+    case 11:
+        this->ICMPv4Code="No se puede llegar a la red destino debido al Tipo de servicio";
+        break;
+    case 12:
+        this->ICMPv4Code="No se puede llegar al host destino debido al Tipo de servicio";
+        break;
+
+    }
+    this->ICMPv4Checksum[0] = dec_hex(int(ICMPv4[2]));
+    this->ICMPv4Checksum[1] = dec_hex(int(ICMPv4[3]));
+}
+
+
+
 
 void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar que la reparticion sea correcta
 {
@@ -244,7 +343,7 @@ void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar q
     printf ("%02x:",this->cIpOrigen[1]);
     printf ("%02x:",this->cIpOrigen[2]);
     printf ("%02x",this->cIpOrigen[3]);
-    cout<<"\nipDestino: "<<endl;
+    cout<<"\n ipDestino: "<<endl;
     printf ("%02x:",this->cIpDestino[0]);
     printf ("%02x:",this->cIpDestino[1]);
     printf ("%02x:",this->cIpDestino[2]);
@@ -254,14 +353,15 @@ void IPv4::printDivBytes() //Imprime la reparticion de palabras para comprovar q
 
 void IPv4::printInfo()
 {
+
     cout<<"\n-------------IPv4--------------"<<endl;
     cout<<"Version: "<<this->version<<endl;
-    cout<<"Tamano de cabecera: "<<this->tamCabecera<<endl;
+    cout<<"Tamano de cabecera: "<<this->tamCabecera<<" palabras"<<endl;
     cout<<"Tipo de servicio: "<<this->tipoServicio<<endl;
     cout<<"\tRetardo: "<<this->retardo<<endl;
     cout<<"\tRendimiento: "<<this->rendimiento<<endl;
     cout<<"\tFiabilidad: "<<this->fiabilidad<<endl;
-    cout<<"Longitud Total: "<<this->logTotal<<endl;
+    cout<<"Longitud Total: "<<this->logTotal<<" bytes"<<endl;
     cout<<"Identificador: "<<this->identificador<<endl;
     cout<<"Flags: "<<endl;
     cout<<"\tBit 1: "<<this->flagBit1<<endl;
@@ -270,14 +370,23 @@ void IPv4::printInfo()
     cout<<"Posicion de fragmento: "<<this->posFragmento<<endl;
     cout<<"Tiempo de vida: "<<this->ttl<<endl;
     cout<<"Protocolo: "<<this->protocolo<<endl;
+    fflush(stdin);
+    if(this->protocolo == "ICMPv4")
+    {
+        cout<<"\tICMPv4 Type: "<<this->ICMPv4Type<<endl;
+        cout<<"\tICMPv4 Code: "<<this->ICMPv4Code<<endl;
+        cout<<"\tICMPv4 Checksum: "<<this->ICMPv4Checksum[0]<<":"<<this->ICMPv4Checksum[1]<<endl;
+    }
     cout<<"Checksum: "<<this->checkSum[0]<<":"<<this->checkSum[1]<<endl;
     cout<<"IP origen: "<<this->ipOrtigen<<endl;
     cout<<"IP destino: "<<this->ipDestino<<endl;
     cout<<"Informacion: "<<endl;
-    unsigned char palabra;
+
+    unsigned char palab;
     for(int i=0; i<this->infoRest.size(); i++)
     {
-        palabra = this->infoRest[i];
-        printf ("%02x:",palabra);
+        palab = this->infoRest[i];
+        printf ("%02x:",palab);
     }
+
 }

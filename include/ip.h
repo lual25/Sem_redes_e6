@@ -20,6 +20,7 @@ private:
     unsigned char cCheckSum[2];
     unsigned char cIpOrigen[4];
     unsigned char cIpDestino[4];
+
     string infoRest = "";
 
     void setVersion();
@@ -34,6 +35,7 @@ private:
     void setFlags();
     void setPosFragmento(string binario);
     void setCheckSum();
+    void ICMPv4();
 
 
     public:
@@ -58,6 +60,11 @@ private:
     string flagBit3;
     int posFragmento;
     string checkSum[2];
+
+    //ICMPv4
+    string ICMPv4Type;
+    string ICMPv4Code;
+    string ICMPv4Checksum[2];
 
     void printDivBytes();
     void printInfo();

@@ -46,3 +46,204 @@
 	<string>
 	<math.h>
 
+1676250164 source:c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 2\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676250164 c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 2\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676250164 source:c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 2\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 2\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676250164 source:e:\equipo6_practica2\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676250164 e:\equipo6_practica2\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676250164 source:e:\equipo6_practica2\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 e:\equipo6_practica2\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676304232 source:c:\users\alumno\desktop\equipo6_practica2\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676304263 c:\users\alumno\desktop\equipo6_practica2\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676304232 source:c:\users\alumno\desktop\equipo6_practica2\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 c:\users\alumno\desktop\equipo6_practica2\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676478798 source:c:\users\alumno\desktop\equipo6_practica3\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676476339 c:\users\alumno\desktop\equipo6_practica3\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676478709 source:c:\users\alumno\desktop\equipo6_practica3\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 c:\users\alumno\desktop\equipo6_practica3\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676478800 source:d:\xdxd\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676476340 d:\xdxd\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676478902 source:d:\xdxd\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 d:\xdxd\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676478800 source:e:\xdxd\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676476340 e:\xdxd\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676478902 source:e:\xdxd\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 e:\xdxd\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676478800 source:c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 3\xdxd\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676476340 c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 3\xdxd\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676478902 source:c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 3\xdxd\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676250164 c:\users\skate\onedrive\escritorio\uni\8vo\seminario redes de computadoras y protocolos de comunicacion\practicas\practica 3\xdxd\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676907383 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1676906589 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\ip.h
+	<string>
+
+1676910036 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676906589 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+
+1676910036 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\arp.cpp
+	"ARP.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1676909688 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\arp.h
+	<string>
+

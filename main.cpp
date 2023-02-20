@@ -20,7 +20,7 @@ int main()
 
     FILE *archivo;
 
-    if ((archivo = fopen(".\\paquetes\\ethernet_ipv4_icmp.bin","rb+")) == NULL)
+    if ((archivo = fopen(".\\paquetes\\ethernet_arp_reply.bin","rb+")) == NULL)
         {
          cout<<"Error en la apertura. Es posible que el fichero no exista \n";
         }
@@ -62,7 +62,7 @@ int main()
             switch(int(tipo)){
             case 8:
                 {
-                    cout<<"IPv4 \n";
+                   cout<<"IPv4 \n";
                    IPv4 _ipv4(info);
                    _ipv4.printInfo();
                    //_ipv4.printDivBytes();
