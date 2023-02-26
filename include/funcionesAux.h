@@ -47,14 +47,19 @@ uint32_t ascii_hex(const char* src) {
     return ret;
   }
 
-string dec_hex(int value)
+string dec_hex(int value, bool first = true)
 {
+
     if (value == 0)
+    {
+        if(first)
+            return "00";
         return "";
+    }
     string hex="";
     int rem = value % 16;
     value /= 16;
-    hex += dec_hex(value); //first execute recurency and print next value
+    hex += dec_hex(value, false); //first execute recurency and print next value
 
     //after return print the less significant digit
     if (rem > 9)

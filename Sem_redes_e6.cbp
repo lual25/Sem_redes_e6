@@ -33,12 +33,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add option='-D&quot;funcionesAux.h&quot;' />
 		</Compiler>
-		<Unit filename="include/ARP.h" />
 		<Unit filename="include/funcionesAux.h" />
 		<Unit filename="include/ip.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/ARP.cpp" />
 		<Unit filename="src/ip.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

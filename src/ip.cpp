@@ -390,3 +390,198 @@ void IPv4::printInfo()
     }
 
 }
+
+
+
+
+//ARP
+ARP::ARP(string cadenaBytes)
+{
+    asignarBytes(cadenaBytes);
+    defTipoHardware();
+    defTipoProtocolo();
+    defCodigoOperacion();
+    setIPsARP();
+    setMACsARP();
+}
+
+void ARP::asignarBytes(string cadenaBytes){
+    this->cTipoHardware[0]=cadenaBytes[0];
+    this->cTipoHardware[1]=cadenaBytes[1];
+    this->cTipoProtocolo[0]=cadenaBytes[2];
+    this->cTipoProtocolo[1]=cadenaBytes[3];
+    this->cLongitudHardware=cadenaBytes[4];
+    this->cLongitudProtocolo=cadenaBytes[5];
+    this->cCodigoOperacion[0]=cadenaBytes[6];
+    this->cCodigoOperacion[1]=cadenaBytes[7];
+    this->longHardware=int(this->cLongitudHardware);
+    this->longProtocolo=int(this->cLongitudProtocolo);
+    int cont=8;
+    for(int i=0;i<longHardware;i++){
+        unsigned char c = cadenaBytes[cont];
+        this->cDireccionHEmisor+=c;
+        cont++;
+    }
+    for(int i=0;i<longProtocolo;i++){
+        unsigned char c = cadenaBytes[cont];
+        this->cDireccionIPEmisor+=c;
+        cont++;
+    }
+    for(int i=0;i<longHardware;i++){
+        unsigned char c = cadenaBytes[cont];
+        this->cDireccionHReceptor+=c;
+        cont++;
+    }
+    for(int i=0;i<longProtocolo;i++){
+        unsigned char c = cadenaBytes[cont];
+        this->cDireccionIPReceptor+=c;
+        cont++;
+    }
+    for(int i=cont; i<cadenaBytes.size(); i++)
+        this->infoRest += cadenaBytes[i];
+
+}
+
+void ARP::defTipoHardware(){
+    string aux="";
+    int tHardware;
+    aux+=this->cTipoHardware[0];
+    aux+=this->cTipoHardware[1];
+    tHardware=bin_dec(string_bin(aux));
+    switch (tHardware){
+        case 1:
+            this->tipoHardware="Ethernet(10Mb)";
+            break;
+        case 6:
+            this->tipoHardware="IEEE 802 Networks";
+            break;
+        case 7:
+            this->tipoHardware="ARCNET";
+            break;
+        case 15:
+            this->tipoHardware="Frame Relay";
+            break;
+        case 16:
+            this->tipoHardware="Asynchronus Transfer Mode(ATM)";
+            break;
+        case 17:
+            this->tipoHardware="HDLC";
+            break;
+        case 18:
+            this->tipoHardware="Fibre Channel";
+            break;
+        case 19:
+            this->tipoHardware="Asynchronus Transfer Mode(ATM)";
+            break;
+        case 20:
+            this->tipoHardware="Serial Line";
+            break;
+        default:
+            this->tipoHardware="Desconocido";
+            break;
+    }
+}
+
+void ARP::defTipoProtocolo(){
+    unsigned char aux;
+    aux+=this->cTipoProtocolo[0];
+    aux+=this->cTipoProtocolo[1];
+
+    switch(int(aux)){
+    case 8:
+        this->tipoProtocolo="IPv4";
+        break;
+    case 14:
+        this->tipoProtocolo="ARP";
+        break;
+    case 181:
+        this->tipoProtocolo="RARP";
+        break;
+    case 355:
+        this->tipoProtocolo="IPv6";
+        break;
+    default:
+        this->tipoProtocolo="Desconocido";
+        break;
+
+    }
+}
+
+void ARP::defCodigoOperacion(){
+    string aux="";
+    int tCOperacion;
+    aux+=this->cCodigoOperacion[0];
+    aux+=this->cCodigoOperacion[1];
+    tCOperacion=bin_dec(string_bin(aux));
+    switch (tCOperacion){
+        case 1:
+            this->codigoOperacion="Solicitud ARP";
+            break;
+        case 2:
+            this->codigoOperacion="Respuesta ARP";
+            break;
+        case 3:
+            this->codigoOperacion="Solicitud RARP";
+            break;
+        case 4:
+            this->codigoOperacion="Respuesta RARP";
+            break;
+        default:
+            this->codigoOperacion="Desconocido";
+            break;
+    }
+}
+
+void ARP::setIPsARP()
+{
+    unsigned char unsignedChar;
+    for(int i=0; i<this->longProtocolo; i++)
+    {
+        unsignedChar=this->cDireccionIPEmisor[i];
+        this->ipEmisor+= to_string(int(unsignedChar));
+        unsignedChar=this->cDireccionIPReceptor[i];
+        this->ipReceptor+= to_string(int(unsignedChar));
+        if(i<this->longProtocolo-1)
+        {
+            this->ipEmisor += ".";
+            this->ipReceptor += ".";
+        }
+    }
+}
+
+void ARP::setMACsARP()
+{
+    unsigned char unsignedChar;
+    for(int i=0; i<this->longHardware; i++)
+    {
+        unsignedChar=this->cDireccionHEmisor[i];
+        this->macEmisor+= dec_hex(int(unsignedChar));
+        unsignedChar=this->cDireccionHReceptor[i];
+        this->macReceptor+= dec_hex(int(unsignedChar));
+        if(i<this->longHardware-1)
+        {
+            this->macEmisor += ":";
+            this->macReceptor += ":";
+        }
+    }
+}
+
+void ARP::printInfoARP(){
+    cout<<"\n-------------ARP---------------"<<endl;
+    cout<<"Tipo de Hardware: "<<this->tipoHardware<<endl;
+    cout<<"Tipo de protocolo: "<<this->tipoProtocolo<<endl;
+    cout<<"Longitud direccion de Hardware: "<<this->longHardware<<" bytes"<<endl;
+    cout<<"Longitud direccion de Protocolo: "<<this->longProtocolo<<" bytes"<<endl;
+    cout<<"Codigo de operacion: "<<this->codigoOperacion<<endl;
+    cout<<"Direccion hardware del emisor: "<<this->macEmisor<<endl;
+    cout<<"Direccion IP del emisor: "<<this->ipEmisor<<endl;
+    cout<<"Direccion hardware del receptor: "<<this->macReceptor<<endl;
+    cout<<"Direccion IP del receptor: "<<this->ipReceptor<<endl;
+    cout<<"Informacion: "<<endl;
+    unsigned char palab;
+    for(int i=0; i<this->infoRest.size(); i++)
+    {
+        palab = this->infoRest[i];
+        printf ("%02x:",palab);
+    }
+}

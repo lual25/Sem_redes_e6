@@ -74,4 +74,44 @@ private:
 
 };
 
+class ARP
+{
+    public:
+        ARP(string cadenaBytes);
+        int longHardware;
+        int longProtocolo;
+        string tipoHardware;
+        string tipoProtocolo;
+        string codigoOperacion;
+        string macEmisor="";
+        string ipEmisor="";
+        string macReceptor="";
+        string ipReceptor="";
+        void printInfoARP();
+
+    protected:
+
+    private:
+        string cadenaBytes;
+        void asignarBytes(string cadenaBytes);
+        unsigned char cTipoHardware[2];
+        unsigned char cTipoProtocolo[2];
+        unsigned char cLongitudHardware;
+        unsigned char cLongitudProtocolo;
+        unsigned char cCodigoOperacion[2];
+        string cDireccionHEmisor="";
+        string cDireccionIPEmisor="";
+        string cDireccionHReceptor="";
+        string cDireccionIPReceptor="";
+
+        string infoRest = "";
+
+        void defTipoHardware();
+        void defTipoProtocolo();
+        void defCodigoOperacion();
+        void setIPsARP();
+        void setMACsARP();
+
+};
+
 #endif // IP_H

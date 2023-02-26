@@ -64,12 +64,16 @@ int main()
                 {
                    cout<<"IPv4 \n";
                    IPv4 _ipv4(info);
-                   _ipv4.printInfo();
+                    _ipv4.printInfo();
                    //_ipv4.printDivBytes();
                 }
                 break;
             case 14:
-                cout<<"ARP \n";
+                {
+                    cout<<"ARP \n";
+                    ARP _arp(info);
+                    _arp.printInfoARP();
+                }
                 break;
             case 181:
                 cout<<"RARP \n";

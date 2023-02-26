@@ -1,20 +1,20 @@
 # depslib dependency file v1.0
-1676250063 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
+1677384284 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
 	"ip.h"
 	"funcionesAux.h"
 	<iostream>
 	<string>
 	<string.h>
 
-1676250067 c:\users\luisc\documents\sem redes\sem_redes_e6\include\ip.h
+1677383542 c:\users\luisc\documents\sem redes\sem_redes_e6\include\ip.h
 	<string>
 
-1676249826 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
+1677383026 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
 	<string>
 	<math.h>
 	<iostream>
 
-1676249875 source:c:\users\luisc\documents\sem redes\sem_redes_e6\main.cpp
+1677079876 source:c:\users\luisc\documents\sem redes\sem_redes_e6\main.cpp
 	"ip.h"
 	<stdio.h>
 	<stdlib.h>
@@ -214,7 +214,7 @@
 	<math.h>
 	<iostream>
 
-1676907383 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\main.cpp
+1677079875 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\main.cpp
 	"ip.h"
 	<stdio.h>
 	<stdlib.h>
@@ -223,10 +223,10 @@
 	<iostream>
 	<math.h>
 
-1676906589 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\ip.h
+1677083238 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\ip.h
 	<string>
 
-1676910036 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\ip.cpp
+1677083978 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\ip.cpp
 	"ip.h"
 	"funcionesAux.h"
 	<iostream>
@@ -238,12 +238,13 @@
 	<math.h>
 	<iostream>
 
-1676910036 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\arp.cpp
+1676911682 source:c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\src\arp.cpp
 	"ARP.h"
+	"funcionesAux.h"
 	<iostream>
 	<string>
 	<string.h>
 
-1676909688 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\arp.h
+1676910785 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\arp.h
 	<string>
 
