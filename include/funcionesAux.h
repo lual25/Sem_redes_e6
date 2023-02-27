@@ -33,7 +33,8 @@ string string_bin(string cadena)
     string bin="";
     for(int i=0; i<cadena.size(); i++)
     {
-        bin += char_bin(cadena[i]);
+        unsigned char c = cadena[i];
+        bin += char_bin(c);
     }
     return bin;
 }
@@ -68,4 +69,6 @@ string dec_hex(int value, bool first = true)
         hex += to_string(rem);
     return hex;
 }
+
+
 #endif

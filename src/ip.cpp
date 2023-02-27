@@ -567,7 +567,7 @@ void ARP::setMACsARP()
 }
 
 void ARP::printInfoARP(){
-    cout<<"\n-------------ARP---------------"<<endl;
+ cout<<"\n-------------ARP---------------"<<endl;
     cout<<"Tipo de Hardware: "<<this->tipoHardware<<endl;
     cout<<"Tipo de protocolo: "<<this->tipoProtocolo<<endl;
     cout<<"Longitud direccion de Hardware: "<<this->longHardware<<" bytes"<<endl;
@@ -584,4 +584,130 @@ void ARP::printInfoARP(){
         palab = this->infoRest[i];
         printf ("%02x:",palab);
     }
+
 }
+
+//IPv6
+
+IPv6::IPv6(string cadenaBytes)
+{
+    asignarBytes(cadenaBytes);
+    defVersion();
+
+}
+
+void IPv6::asignarBytes(string cadenaBytes)
+{
+    for(int i=0; i<4; i++)
+        this->cfirs4bytes[i] = cadenaBytes[i];
+    this->cTamanoDatos[0] = cadenaBytes[4];
+    this->cTamanoDatos[1] = cadenaBytes[5];
+    this->cEncabezadoSiguiente = cadenaBytes[6];
+    this->cLimiteSalto = cadenaBytes[7];
+    this->cDireccionOrigen[0] = cadenaBytes[8];
+    this->cDireccionOrigen[1] = cadenaBytes[9];
+    this->cDireccionDestino[0] = cadenaBytes[10];
+    this->cDireccionDestino[1] = cadenaBytes[11];
+
+}
+
+void IPv6::defVersion()
+{
+    string bin1 = char_bin(this->cfirs4bytes[0]);
+    string bin2 = char_bin(this->cfirs4bytes[1]);
+    string version = "";
+    string ctrafico = "";
+    string eflujo = "";
+    for(int i=0; i<bin1.size(); i++)
+    {
+        if(i<4)
+            version+=bin1[i];
+        else
+            ctrafico+=bin1[i];
+    }
+    for(int i=0; i<bin1.size(); i++)
+    {
+        if(i<4)
+            ctrafico+=bin2[i];
+        else
+            eflujo+=bin2[i];
+    }
+    cout<<eflujo<<endl;
+    this->version = bin_dec(version);
+    this->claseTrafico = ctrafico;
+    desglosarBits();
+    this->etiquetaFlujo = bin_dec(eflujo);
+}
+
+void IPv6::desglosarBits()
+{
+    string tipo = "";
+    for(int i=0; i<3; i++)
+        tipo+= this->claseTrafico[i];
+    switch(bin_dec(tipo))
+    {
+        case 0:
+            this->tipoServicio = "De rutina";
+        break;
+        case 1:
+            this->tipoServicio = "Prioritario";
+        break;
+        case 2:
+            this->tipoServicio = "Inmediato";
+        break;
+        case 3:
+            this->tipoServicio = "Relampago";
+        break;
+        case 4:
+            this->tipoServicio = "Invalidacion relampago";
+        break;
+        case 5:
+            this->tipoServicio = "Procesado llamada critica y de emergencia";
+        break;
+        case 6:
+            this->tipoServicio = "Control de trabajo de internet";
+        break;
+        case 7:
+            this->tipoServicio = "Control de red";
+        break;
+        default:
+            this->tipoServicio = "Tipo de servicio no identificado";
+
+    }
+        if(this->claseTrafico[4] == '1')
+                this->retardo = "bajo";
+        else
+             this->retardo = "normal";
+
+        if(this->claseTrafico[6] == '1')
+                this->fiabilidad = "alta";
+        else
+             this->fiabilidad = "normal";
+
+        if(this->claseTrafico[5] == '1')
+                this->rendimiento = "alto";
+        else
+             this->rendimiento = "normal";
+
+
+}
+void IPv6::defTamDatos()
+{
+    this->tamDatos = int(cTamanoDatos[0]) + int(this->cTamanoDatos[1]);
+}
+void IPv6::printInfo()
+{
+
+    cout<<"\n-------------IPv6--------------"<<endl;
+    cout<<"Version: "<<this->version<<endl;
+    cout<<"clase Trafico: "<<this->claseTrafico<<endl;
+    cout<<"Tipo de servicio: "<<this->tipoServicio<<endl;
+    cout<<"\tRetardo: "<<this->retardo<<endl;
+    cout<<"\tRendimiento: "<<this->rendimiento<<endl;
+    cout<<"\tFiabilidad: "<<this->fiabilidad<<endl;
+    cout<<"Etiqueta de Flujo: "<<this->etiquetaFlujo<<endl;
+    cout<<"Tamano de datos: "<<this->tamDatos<<endl;
+
+
+}
+

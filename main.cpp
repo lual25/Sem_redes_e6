@@ -14,13 +14,14 @@ int main()
 {
     string ipv4;
     unsigned char palabra;
-    unsigned char tipo;
+    unsigned char ztipo;
+    string tipo;
     int i;
 
 
     FILE *archivo;
 
-    if ((archivo = fopen(".\\paquetes\\ethernet_arp_reply.bin","rb+")) == NULL)
+    if ((archivo = fopen(".\\paquetes\\ipv6_icmpv6_pong.bin","rb+")) == NULL)
         {
          cout<<"Error en la apertura. Es posible que el fichero no exista \n";
         }
@@ -57,9 +58,12 @@ int main()
             }
 
             cout<<"Tipo: ";
+            unsigned char c1, c2;
+            c1 = tipo[0];
+            c2 = tipo[1];
 
 
-            switch(int(tipo)){
+            switch(int(c1)+ int(c2)){
             case 8:
                 {
                    cout<<"IPv4 \n";
@@ -79,7 +83,11 @@ int main()
                 cout<<"RARP \n";
                 break;
             case 355:
-                cout<<"IPv6 \n";
+                {
+                   cout<<"IPv6 \n";
+                   IPv6 _ipv6(info);
+                   _ipv6.printInfo();
+                }
                 break;
             default:
                 cout<<"Tipo no identificado \n";

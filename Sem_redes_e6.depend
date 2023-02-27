@@ -248,3 +248,27 @@
 1676910785 c:\users\alumno\documents\semredes\equipo6_practica3\sem_redes_e6-main\include\arp.h
 	<string>
 
+1677514930 source:c:\users\alumno\downloads\sem_redes_e6-main\sem_redes_e6-main\main.cpp
+	"ip.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<string>
+	<iostream>
+	<math.h>
+
+1677515870 c:\users\alumno\downloads\sem_redes_e6-main\sem_redes_e6-main\include\ip.h
+	<string>
+
+1677514878 source:c:\users\alumno\downloads\sem_redes_e6-main\sem_redes_e6-main\src\ip.cpp
+	"ip.h"
+	"funcionesAux.h"
+	<iostream>
+	<string>
+	<string.h>
+
+1677514027 c:\users\alumno\downloads\sem_redes_e6-main\sem_redes_e6-main\include\funcionesaux.h
+	<string>
+	<math.h>
+	<iostream>
+

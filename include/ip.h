@@ -92,6 +92,7 @@ class ARP
     protected:
 
     private:
+
         string cadenaBytes;
         void asignarBytes(string cadenaBytes);
         unsigned char cTipoHardware[2];
@@ -114,4 +115,32 @@ class ARP
 
 };
 
+class IPv6
+{
+private:
+    unsigned char cfirs4bytes[4];
+    unsigned char cTamanoDatos[2];
+    unsigned char cEncabezadoSiguiente;
+    unsigned char cLimiteSalto;
+    unsigned char cDireccionOrigen[2];
+    unsigned char cDireccionDestino[2];
+
+    void defVersion();
+public:
+    int version;
+    string claseTrafico;
+    string tipoServicio;
+    string retardo;
+    string fiabilidad;
+    string rendimiento;
+    int tamDatos;
+    int etiquetaFlujo;
+    IPv6(string cadenaBytes);
+    void asignarBytes(string cadenaBytes);
+    void printInfo();
+    void desglosarBits();
+    void defTamDatos();
+
+
+};
 #endif // IP_H
