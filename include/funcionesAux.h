@@ -67,6 +67,9 @@ string dec_hex(int value, bool first = true)
         hex += (char)(rem - 10 + 'A');
     else
         hex += to_string(rem);
+    if(hex.length()<2 && first)
+        for(int i = hex.length(); i<2; i++) //Rellena con 0 los espacios vacios
+            hex = "0" + hex;
     return hex;
 }
 

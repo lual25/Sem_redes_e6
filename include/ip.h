@@ -122,8 +122,15 @@ private:
     unsigned char cTamanoDatos[2];
     unsigned char cEncabezadoSiguiente;
     unsigned char cLimiteSalto;
-    unsigned char cDireccionOrigen[2];
-    unsigned char cDireccionDestino[2];
+    unsigned char cDireccionOrigen[15];
+    unsigned char cDireccionDestino[15];
+    void asignarBytes(string cadenaBytes);
+    void desglosarBits();
+    void defTamDatos();
+    void defEncabezadoSiguiente();
+    void defLimiteSalto();
+    void defDirecciones();
+
 
     void defVersion();
 public:
@@ -133,13 +140,14 @@ public:
     string retardo;
     string fiabilidad;
     string rendimiento;
+    string encabezadoSiguiente;
+    string direccionOrigen;
+    string direccionDestino;
+    int limiteSalto;
     int tamDatos;
     int etiquetaFlujo;
     IPv6(string cadenaBytes);
-    void asignarBytes(string cadenaBytes);
     void printInfo();
-    void desglosarBits();
-    void defTamDatos();
 
 
 };

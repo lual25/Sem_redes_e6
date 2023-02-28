@@ -1,20 +1,20 @@
 # depslib dependency file v1.0
-1677384284 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
+1677554658 source:c:\users\luisc\documents\sem redes\sem_redes_e6\src\ip.cpp
 	"ip.h"
 	"funcionesAux.h"
 	<iostream>
 	<string>
 	<string.h>
 
-1677383542 c:\users\luisc\documents\sem redes\sem_redes_e6\include\ip.h
+1677554244 c:\users\luisc\documents\sem redes\sem_redes_e6\include\ip.h
 	<string>
 
-1677383026 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
+1677555238 c:\users\luisc\documents\sem redes\sem_redes_e6\include\funcionesaux.h
 	<string>
 	<math.h>
 	<iostream>
 
-1677079876 source:c:\users\luisc\documents\sem redes\sem_redes_e6\main.cpp
+1677551381 source:c:\users\luisc\documents\sem redes\sem_redes_e6\main.cpp
 	"ip.h"
 	<stdio.h>
 	<stdlib.h>

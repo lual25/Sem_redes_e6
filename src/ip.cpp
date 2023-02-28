@@ -593,6 +593,10 @@ IPv6::IPv6(string cadenaBytes)
 {
     asignarBytes(cadenaBytes);
     defVersion();
+    defTamDatos();
+    defEncabezadoSiguiente();
+    defLimiteSalto();
+    defDirecciones();
 
 }
 
@@ -632,7 +636,6 @@ void IPv6::defVersion()
         else
             eflujo+=bin2[i];
     }
-    cout<<eflujo<<endl;
     this->version = bin_dec(version);
     this->claseTrafico = ctrafico;
     desglosarBits();
@@ -641,6 +644,7 @@ void IPv6::defVersion()
 
 void IPv6::desglosarBits()
 {
+
     string tipo = "";
     for(int i=0; i<3; i++)
         tipo+= this->claseTrafico[i];
@@ -695,6 +699,50 @@ void IPv6::defTamDatos()
 {
     this->tamDatos = int(cTamanoDatos[0]) + int(this->cTamanoDatos[1]);
 }
+void IPv6::defEncabezadoSiguiente()
+{
+    switch(int(this->cEncabezadoSiguiente))
+    {
+    case 1:
+        this->encabezadoSiguiente = "ICMPv4";
+        break;
+    case 6:
+        this->encabezadoSiguiente = "TCP";
+        break;
+    case 17:
+        this->encabezadoSiguiente = "UDP";
+        break;
+    case 58:
+        this->encabezadoSiguiente = "ICMPv6";
+        break;
+    case 118:
+        this->encabezadoSiguiente = "STP";
+        break;
+    case 121:
+        this->encabezadoSiguiente = "SMP";
+        break;
+    default:
+        this->encabezadoSiguiente = "No identificado";
+    }
+}
+void IPv6::defLimiteSalto()
+{
+    this->limiteSalto = int(this->cLimiteSalto);
+}
+void IPv6::defDirecciones()
+{
+
+    for(int i=0; i<16; i++)
+    {
+        this->direccionOrigen+= dec_hex(int(this->cDireccionOrigen[i]));
+        this->direccionDestino+= dec_hex(int(this->cDireccionDestino[i]));
+        if(i<15 && (i+1)%2 == 0)
+        {
+            this->direccionOrigen += ":";
+            this->direccionDestino += ":";
+        }
+    }
+}
 void IPv6::printInfo()
 {
 
@@ -707,7 +755,10 @@ void IPv6::printInfo()
     cout<<"\tFiabilidad: "<<this->fiabilidad<<endl;
     cout<<"Etiqueta de Flujo: "<<this->etiquetaFlujo<<endl;
     cout<<"Tamano de datos: "<<this->tamDatos<<endl;
-
+    cout<<"Tipo de encabezado siguiente: "<<this->encabezadoSiguiente<<endl;
+    cout<<"Limite de salto: "<<this->limiteSalto<<endl;
+    cout<<"Direccion Origen: "<<this->direccionOrigen<<endl;
+    cout<<"Direccion destino: "<<this->direccionDestino<<endl;
 
 }
 
