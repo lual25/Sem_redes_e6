@@ -66,6 +66,7 @@ private:
     string ICMPv4Code;
     string ICMPv4Checksum[2];
 
+    //TCP
     void printDivBytes();
     void printInfo();
 
@@ -124,12 +125,17 @@ private:
     unsigned char cLimiteSalto;
     unsigned char cDireccionOrigen[15];
     unsigned char cDireccionDestino[15];
+
+    string infoRest="";
+
     void asignarBytes(string cadenaBytes);
     void desglosarBits();
     void defTamDatos();
     void defEncabezadoSiguiente();
     void defLimiteSalto();
     void defDirecciones();
+    void ICMPv6();
+    void ICMPv6_tipo();
 
 
     void defVersion();
@@ -146,9 +152,155 @@ public:
     int limiteSalto;
     int tamDatos;
     int etiquetaFlujo;
+    //ICMPv6
+    int ICMPv6Tipo;
+    string ICMPV6_descripcionCodigo;
+    string ICMPV6_mensaje;
+    int ICMPv6Codigo;
+    string ICMPv6Checksum[2];
+
     IPv6(string cadenaBytes);
     void printInfo();
 
 
 };
+
+class TCP
+{
+private:
+    unsigned char cPuertoOrigen[2];
+    unsigned char cPuertoDestino[2];
+    unsigned char cNSecuencia[4];
+    unsigned char cNAcuseRecibo[4];
+    unsigned char cLCabecera[2];
+    unsigned char cTVentana[2];
+    unsigned char cSumVerificacion[2];
+    unsigned char cPunteroUrgente[2];
+
+    void asignarBytes(string cadenaBytes);
+    void defPuertos();
+    void defNSecuencia();
+    void defNAcuse();
+    void defLCabecera();
+    void defBanderas();
+    void defTamVentana();
+    void defChecksum();
+public:
+    TCP(string cadenaBytes);
+    int puertoOrigen;
+    int puertoDestino;
+    string tipoPuertoOrigen;
+    string tipoPuertoDestino;
+    string servicioOrigen;
+    string servicioDestino;
+    double nSecuencia;
+    double nAcuseRecibo;
+    int lCabecera;
+    string banderas;
+    int Tamventana;
+    int PunteroUrgente;
+    string checksum[2];
+
+    void printInfo();
+
+
+};
+
+class UDP
+{
+   private:
+    unsigned char cPuertoOrigen[2];
+    unsigned char cPuertoDestino[2];
+    unsigned char cLTotal[2];
+    unsigned char cSumVerificacion[2];
+
+    void asignarBytes(string cadenaBytes);
+    void defPuertos();
+    void defLTotal();
+    void defChecksum();
+
+    public:
+     UDP(string cadenaBytes);
+     int puertoOrigen;
+    int puertoDestino;
+    string tipoPuertoOrigen;
+    string tipoPuertoDestino;
+    string servicioOrigen;
+    string servicioDestino;
+    int lTotal;
+    string checksum[2];
+    string infoRest = "";
+
+    void printInfo();
+};
+class DNSQuestion
+{
+    public:
+        string Qname;
+        string Qtype;
+        string Qclass;
+
+};
+class DNSAnswer
+{
+    public:
+        string APTR;
+        string Atype;
+        string Aclass;
+        int ATTL;
+        int ARLen;
+        string ARData;
+
+};
+class DNS
+{
+    private:
+
+        unsigned char cID[2];
+        unsigned char cBanderas[2];
+        unsigned char cQDcount[2];
+        unsigned char cANcount[2];
+        unsigned char cNScount[2];
+        unsigned char cARcount[2];
+        string getDom(string bytes, int bytesStart);
+        string getDomType(string bytes, int byteStart);
+        string getDomClass(string bytes, int byteStart);
+        string getRData(string bytes, int byteStart, string type);
+
+
+        DNSQuestion questions[5];
+        DNSAnswer answers[5];
+
+        void asignarBytes(string cadenaBytes);
+        void defID();
+        void defBanderas();
+        void defContadores();
+        int question(string cadenaBytes, int startByte, int no_question);
+        int answer(string cadenaBytes, int startByte, int no_question);
+    public:
+        DNS(string cadenaBytes);
+        string id;
+        string banderaQR;
+        string banderaOPcode;
+        string banderaAA;
+        string banderaTC;
+        string banderaRD;
+        string banderaRA;
+        string banderaZ;
+        string banderaAD;
+        string banderaCD;
+        string banderaRcode;
+        int qdcount;
+        int ancount;
+        int nscount;
+        int arcount;
+        string infoRest="";
+
+        void printInfo();
+
+
+
+};
+
+
 #endif // IP_H

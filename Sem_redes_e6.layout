@@ -2,49 +2,73 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="src\ip.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="18518" topLine="293" />
-		</Cursor>
-		<Folding>
-			<Collapse line="8" />
-			<Collapse line="22" />
-			<Collapse line="64" />
-			<Collapse line="125" />
-			<Collapse line="133" />
-			<Collapse line="141" />
-			<Collapse line="169" />
-			<Collapse line="173" />
-			<Collapse line="187" />
-			<Collapse line="212" />
-			<Collapse line="218" />
-			<Collapse line="318" />
-			<Collapse line="398" />
-			<Collapse line="407" />
-			<Collapse line="444" />
-			<Collapse line="484" />
-			<Collapse line="509" />
-			<Collapse line="515" />
-			<Collapse line="535" />
-			<Collapse line="552" />
-		</Folding>
-	</File>
 	<File name="include\ip.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2929" topLine="38" />
+			<Cursor1 position="5934" topLine="174" />
+		</Cursor>
+		<Folding>
+			<Collapse line="78" />
+			<Collapse line="119" />
+		</Folding>
+	</File>
+	<File name="src\ip.cpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="45809" topLine="448" />
 		</Cursor>
 		<Folding>
 			<Collapse line="7" />
+			<Collapse line="20" />
+			<Collapse line="41" />
+			<Collapse line="56" />
+			<Collapse line="61" />
+			<Collapse line="112" />
+			<Collapse line="118" />
+			<Collapse line="190" />
+			<Collapse line="194" />
+			<Collapse line="289" />
+			<Collapse line="390" />
+			<Collapse line="398" />
+			<Collapse line="434" />
+			<Collapse line="473" />
+			<Collapse line="497" />
+			<Collapse line="536" />
+			<Collapse line="574" />
+			<Collapse line="583" />
+			<Collapse line="601" />
+			<Collapse line="626" />
+			<Collapse line="678" />
+			<Collapse line="681" />
+			<Collapse line="707" />
+			<Collapse line="710" />
+			<Collapse line="723" />
+			<Collapse line="742" />
+			<Collapse line="853" />
+			<Collapse line="900" />
+			<Collapse line="910" />
+			<Collapse line="931" />
+			<Collapse line="1052" />
+			<Collapse line="1059" />
+			<Collapse line="1066" />
+			<Collapse line="1085" />
+			<Collapse line="1091" />
+			<Collapse line="1118" />
+			<Collapse line="1126" />
+			<Collapse line="1142" />
+			<Collapse line="1264" />
+			<Collapse line="1270" />
+			<Collapse line="1326" />
+			<Collapse line="1331" />
+			<Collapse line="1422" />
 		</Folding>
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1782" topLine="71" />
+			<Cursor1 position="1626" topLine="73" />
 		</Cursor>
 	</File>
 	<File name="include\funcionesAux.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1328" topLine="44" />
+			<Cursor1 position="2490" topLine="82" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

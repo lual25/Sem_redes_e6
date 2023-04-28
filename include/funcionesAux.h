@@ -5,7 +5,34 @@
 #include <iostream>
 
 using namespace std;
+bool isNumber(string s)
+{
+    for( int i = 0; i < s.length(); i++ ) {
+      if( !isdigit( s[i] )) {
+         return false;
+      }
+   }
+   return true;
+ }
 
+string hexToASCII(string hex)
+{
+    // initialize the ASCII code string as empty.
+    string ascii = "";
+    for (size_t i = 0; i < hex.length(); i += 2)
+    {
+        // extract two characters from hex string
+        string part = hex.substr(i, 2);
+
+        // change it into base 16 and
+        // typecast as the character
+        char ch = stoul(part, nullptr, 16);
+
+        // add this char to final ASCII string
+        ascii += ch;
+    }
+    return ascii;
+}
 int bin_dec(string bin)
 {
     int value = 0;
@@ -20,8 +47,23 @@ int bin_dec(string bin)
     return value;
 }
 
-string char_bin(char hex)
+double bin_double(string bin)
 {
+    double value = 0;
+    int indexCounter = 0;
+    for(int i=bin.size()-1;i>=0;i--){
+
+        if(bin[i]=='1'){
+            value += pow(2, indexCounter);
+        }
+        indexCounter++;
+    }
+    return value;
+}
+
+string char_bin(char chex)
+{
+    unsigned char hex = chex;
     string bin="";
     for(int i=7;i>=0;i--)
         bin+=((hex & (1 << i)) ? '1' : '0');
@@ -72,6 +114,9 @@ string dec_hex(int value, bool first = true)
             hex = "0" + hex;
     return hex;
 }
-
+ string char_hex(char chex)
+{
+    return dec_hex(bin_dec(char_bin(chex)));
+}
 
 #endif

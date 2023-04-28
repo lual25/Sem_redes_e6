@@ -21,7 +21,7 @@ int main()
 
     FILE *archivo;
 
-    if ((archivo = fopen(".\\paquetes\\ipv6_icmpv6_pong.bin","rb+")) == NULL)
+    if ((archivo = fopen(".\\paquetes\\ethernet_ipv4_udp_dns.bin","rb+")) == NULL)
         {
          cout<<"Error en la apertura. Es posible que el fichero no exista \n";
         }
@@ -69,7 +69,6 @@ int main()
                    cout<<"IPv4 \n";
                    IPv4 _ipv4(info);
                     _ipv4.printInfo();
-                   //_ipv4.printDivBytes();
                 }
                 break;
             case 14:
